@@ -59,6 +59,18 @@ int main()
 		cout << "thud " << thudCount << endl;
 		thudCount++;
 	};
+	leftside.onCollision = [&thudCount](PhysicsBodyCollisionResult result) {
+		cout << "thud " << thudCount << endl;
+		thudCount++;
+	};
+	rightside.onCollision = [&thudCount](PhysicsBodyCollisionResult result) {
+		cout << "thud " << thudCount << endl;
+		thudCount++;
+	};
+	ceiling.onCollision = [&thudCount](PhysicsBodyCollisionResult result) {
+		cout << "thud " << thudCount << endl;
+		thudCount++;
+	};
 
 	int bangCount(0);
 	center.onCollision = [&bangCount](PhysicsBodyCollisionResult result) {
@@ -69,7 +81,7 @@ int main()
 	Clock clock;
 	Time lastTime(clock.getElapsedTime());
 
-	while (bangCount < 2) {
+	while (bangCount <= 2) {
 		// calculate MS since last frame
 		Time currentTime(clock.getElapsedTime());
 		Time deltaTime(currentTime - lastTime);
